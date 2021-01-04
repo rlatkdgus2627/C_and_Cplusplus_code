@@ -20,6 +20,7 @@ int main(){
         }
         else if(str[i]=='1') check = false;
     }
+    
     check = false;
     for(int i=0;str[i]!='\0';i++){
         if(str[i]=='1'&&!check){
