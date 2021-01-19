@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
+#define x first
+#define y second
 
 using namespace std;
 
 typedef long long ll;
 
-typedef struct vertex{
-    ll x;
-    ll y;
-}dot;
+typedef pair<ll,ll> dot;
 
 dot p[4];
 
@@ -42,27 +41,31 @@ int main(){
     int check2 = ccw(p[2],p[0],p[3])*ccw(p[2],p[1],p[3]);
 
     if(ccw(p[0],p[2],p[1]) == 0 && ccw(p[0],p[3],p[1]) == 0 && ccw(p[2],p[0],p[3]) == 0 && ccw(p[2],p[1],p[3]) == 0){
-        if((p[1].x != p[0].x ? p[1].x < p[0].x : p[1].y < p[0].y)){
+        if(p[1]<p[0]){
             temp = p[1];
             p[1] = p[0];
             p[0] = temp;
         }
-        if((p[3].x != p[2].x ? p[3].x < p[2].x : p[3].y < p[2].y)){
+        if(p[3] < p[2]){
             temp = p[3];
             p[3] = p[2];
             p[2] = temp;
         }
 
-        if((p[1].x != p[2].x ? p[1].x < p[2].x : p[1].y < p[2].y)||(p[3].x != p[0].x ? p[3].x < p[0].x : p[3].y < p[0].y)){
+        if(p[1] < p[2] || p[3] < p[0]){
             cout << "0" << endl;
         }
-        else if(p[1].x == p[2].x && p[1].y == p[2].y && (p[3].x != p[0].x ? p[3].x > p[0].x : p[3].y > p[0].y)){
+        else if(p[1] == p[2] && p[0] != p[3]){
             cout << "1" << endl;
             cout << p[1].x << " " << p[1].y << endl;
         }
-        else if(p[3].x == p[0].x && p[3].y == p[0].y && (p[1].x != p[2].x ? p[1].x > p[2].x : p[1].y > p[2].y)){
+        else if(p[0] == p[3] && p[1] != p[2]){
             cout << "1" << endl;
             cout << p[3].x << " " << p[3].y << endl;
+        }
+        else if(p[0] == p[1] && p[1] == p[2] && p[2] == p[3]){
+            cout << "1" << endl;
+            cout << p[0].x << " " << p[0].y << endl;
         }
         else{
             cout << "1" << endl;
