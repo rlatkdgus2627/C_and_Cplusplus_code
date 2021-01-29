@@ -15,9 +15,19 @@ double slope1, slope2, ansx, ansy;
 void calculation(){
     slope1 = (double)(p[1].y-p[0].y)/(double)(p[1].x-p[0].x);
     slope2 = (double)(p[3].y-p[2].y)/(double)(p[3].x-p[2].x);
-    ansx = (double)(p[0].y - p[2].y)+ (double)p[2].x * slope2 - (double)p[0].x * slope1;
-    ansx /= (slope2 - slope1);
-    ansy = slope1*(ansx - (double)p[0].x) + (double)p[0].y;
+    if(p[1].x-p[0].x == 0){
+        ansx = p[0].x;
+        ansy = slope2*(ansx - (double)p[2].x)+p[2].y;
+    }
+    else if(p[3].x-p[2].x == 0){
+        ansx = p[2].x;
+        ansy = slope1*(ansx - (double)p[0].x) + (double)p[0].y;
+    }
+    else{
+        ansx = (double)(p[0].y - p[2].y)+ (double)p[2].x * slope2 - (double)p[0].x * slope1;
+        ansx /= (slope2 - slope1);
+        ansy = slope1*(ansx - (double)p[0].x) + (double)p[0].y;
+    }
 
     cout << fixed;
     cout.precision(16);
@@ -40,36 +50,43 @@ int main(){
     int check1 = ccw(p[0],p[2],p[1])*ccw(p[0],p[3],p[1]);
     int check2 = ccw(p[2],p[0],p[3])*ccw(p[2],p[1],p[3]);
 
-    if(ccw(p[0],p[2],p[1]) == 0 && ccw(p[0],p[3],p[1]) == 0 && ccw(p[2],p[0],p[3]) == 0 && ccw(p[2],p[1],p[3]) == 0){
-        if(p[1]<p[0]){
-            temp = p[1];
-            p[1] = p[0];
-            p[0] = temp;
-        }
-        if(p[3] < p[2]){
-            temp = p[3];
-            p[3] = p[2];
-            p[2] = temp;
-        }
+    if(ccw(p[0],p[2],p[1])*ccw(p[0],p[3],p[1]) == 0 && ccw(p[2],p[0],p[3])*ccw(p[2],p[1],p[3]) == 0){
+        if(ccw(p[0],p[2],p[1])==0 && ccw(p[0],p[3],p[1]) == 0 && ccw(p[2],p[0],p[3]) == 0 && ccw(p[2],p[1],p[3]) == 0){
+            if(p[1]<p[0]){
+                temp = p[1];
+                p[1] = p[0];
+                p[0] = temp;
+            }
+            if(p[3] < p[2]){
+                temp = p[3];
+                p[3] = p[2];
+                p[2] = temp;
+            }
 
-        if(p[1] < p[2] || p[3] < p[0]){
-            cout << "0" << endl;
-        }
-        else if(p[1] == p[2] && p[0] != p[3]){
-            cout << "1" << endl;
-            cout << p[1].x << " " << p[1].y << endl;
-        }
-        else if(p[0] == p[3] && p[1] != p[2]){
-            cout << "1" << endl;
-            cout << p[3].x << " " << p[3].y << endl;
-        }
-        else if(p[0] == p[1] && p[1] == p[2] && p[2] == p[3]){
-            cout << "1" << endl;
-            cout << p[0].x << " " << p[0].y << endl;
+            if(p[1] < p[2] || p[3] < p[0]){
+                cout << "0" << endl;
+            }
+            else if(p[1] == p[2] && p[0] != p[3]){
+                cout << "1" << endl;
+                cout << p[1].x << " " << p[1].y << endl;
+            }
+            else if(p[0] == p[3] && p[1] != p[2]){
+                cout << "1" << endl;
+                cout << p[3].x << " " << p[3].y << endl;
+            }
+            else if(p[0] == p[1] && p[1] == p[2] && p[2] == p[3]){
+                cout << "1" << endl;
+                cout << p[0].x << " " << p[0].y << endl;
+            }
+            else{
+                cout << "1" << endl;
+            }
         }
         else{
             cout << "1" << endl;
+            calculation();
         }
+        
     }
     else if(check1 <= 0 && check2 <= 0){
         cout << "1" << endl;
