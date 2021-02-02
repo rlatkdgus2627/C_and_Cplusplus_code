@@ -7,6 +7,9 @@
         "functional": "cpp",
         "ostream": "cpp",
         "cmath": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "valarray": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp"
     }
 }

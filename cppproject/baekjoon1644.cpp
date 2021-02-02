@@ -26,7 +26,22 @@ int main(){
         if(number[i] == false)  prime.push_back(i);
     }
 
+
     //solve (two pointer)
+    int s = 0, e = 0, sum = 0;
+
+    while(s <= e && s < prime.size()){
+        if(sum < n && e < prime.size()){
+            sum += prime[e++];
+        }
+        else if(sum == n){
+            ans++;
+            sum -= prime[s++];
+        }
+        else{
+            sum -= prime[s++];
+        }
+    }
     
     cout << ans;
     return 0;
