@@ -10,6 +10,7 @@
         "random": "cpp",
         "valarray": "cpp",
         "*.tcc": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "ratio": "cpp"
     }
 }

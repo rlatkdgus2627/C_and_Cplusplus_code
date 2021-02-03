@@ -16,25 +16,27 @@ void bfs() {
 	while (!Q.empty()) {
 		pair<int, int> cur = Q.front();
 		Q.pop();
+
+		visited[cur.first] = true;
+
 		if (cur.first == e) {
 			ans = cur.second;
 			cnt++;
 		}
+
 		if (cur.second > ans && ans != -1) {
 			break;
 		}
-		if (safe(cur.first - 1) && (visited[cur.first-1] == false || cur.first - 1 == e)) {
+
+		if (safe(cur.first - 1) && visited[cur.first-1] == false) {
 			Q.push({ cur.first - 1, cur.second + 1});
-			visited[cur.first - 1] = true;
 		}
 		
-		if (safe(cur.first + 1) && (visited[cur.first + 1] == false || cur.first + 1 == e)) {
+		if (safe(cur.first + 1) && visited[cur.first + 1] == false) {
 			Q.push({ cur.first + 1, cur.second + 1 });
-			visited[cur.first + 1] = true;
 		}
-		if (safe(cur.first * 2) && (visited[cur.first * 2] == false || cur.first * 2 == e)) {
+		if (safe(cur.first * 2) && visited[cur.first * 2] == false) {
 			Q.push({ cur.first * 2, cur.second + 1 });
-			visited[cur.first * 2] = true;
 		}
 
 	}
@@ -43,6 +45,10 @@ void bfs() {
 }
 int main() {
 	scanf("%d %d", &s, &e);
-	bfs();
+	if(s>e){
+		printf("%d\n",s-e);
+		printf("1");
+	}
+	else	bfs();
 	return 0;
 }
