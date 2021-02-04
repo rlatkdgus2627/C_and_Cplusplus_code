@@ -66,6 +66,7 @@ int solve(int c1,int c2){
     }
     return ret;
 }
+
 void printTrace(int c1,int c2){
     if(c1 == w || c2 == w) return;
     cout << trace[c1][c2] << "\n";
