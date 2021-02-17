@@ -17,6 +17,10 @@
         "initializer_list": "cpp",
         "regex": "cpp",
         "utility": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "complex": "cpp",
+        "forward_list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }
