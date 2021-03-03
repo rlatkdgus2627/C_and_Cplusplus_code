@@ -87,3 +87,6 @@ dkms.conf
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode,c,c++
+
+### SoMa coding test files ###
+SoMa_test1/*
