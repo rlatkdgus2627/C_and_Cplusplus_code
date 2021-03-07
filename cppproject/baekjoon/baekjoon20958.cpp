@@ -2,16 +2,16 @@
 
 using namespace std;
 
-int n,m;
-int num[50000];
+long long n,m;
+long long num[50002];
 long long ans;
 bool check;
-int temp,amount;
-int cnt[10000001];
+long long temp,amount;
+long long cnt[10000001];
 
-vector<int> factor(int n){
-    vector<int> ret;
-    for(int i=2;i*i<=n;i++){
+vector<long long> factor(long long n){
+    vector<long long> ret;
+    for(long long i=2;i*i<=n;i++){
         while(n%i==0){
             ret.push_back(i);
             n/=i;
@@ -43,7 +43,7 @@ int main(){
     }
     for(int i=0;i<m;i++){
         if(num[i]==1) continue;
-        vector<int>primes = factor(num[i]);
+        vector<long long>primes = factor(num[i]);
         temp = primes[0];
         amount = 1;
         for(int j=1;j<primes.size();j++){
@@ -65,11 +65,11 @@ int main(){
         }
     }
     for(int i=m;i<n;i++){
-        vector<int>primes1 = factor(num[i-m]);
+        vector<long long>primes1 = factor(num[i-m]);
         for(auto j:primes1){
             cnt[j]--;
         }
-        vector<int>primes2 = factor(num[i]);
+        vector<long long>primes2 = factor(num[i]);
         if(num[i]==1) continue;
         temp = primes2[0];
         amount = 1;
