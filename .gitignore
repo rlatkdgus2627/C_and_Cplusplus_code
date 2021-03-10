@@ -90,3 +90,5 @@ dkms.conf
 
 ### SoMa coding test files ###
 SoMa_test1/*
+### data structure lab ###
+account.cpp
