@@ -1,24 +1,15 @@
 #include <stdio.h>
 
 int main(){
-    int max, min, sum = 0;
-    int num[10];
-
-    for(int i=0;i<10;i++){
-        scanf("%d",&num[i]);
+    int a, b, n;
+    int num[10000];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        scanf("%d %d",&a,&b);
+        num[i] = a+b;
     }
-
-    max = min = num[0];
-
-    for(int i=0;i<10;i++){
-        if(num[i] > max){
-            max = num[i];
-        }
-        if(min > num[i]){
-            min = num[i];
-        }
-        sum += num[i];
+    for(int i=0;i<n;i++){
+        printf("%d\n",num[i]);
     }
-    printf("max:%d min:%d avg:%lf", max, min, sum/10.0);
     return 0;
 }

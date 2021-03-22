@@ -25,6 +25,7 @@
         "cstdlib": "cpp",
         "chrono": "cpp",
         "algorithm": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "tuple": "cpp"
     }
 }
