@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-//	written by : 2020112036 김상현
+//	written by : 김상현
 //                                                       listarr.cpp
 //
 //  SOLUTION: Array implementation of the List ADT

@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-//	written by : 2020112036 김상현
+//	written by : 김상현
 //                                                          listarr.h
 //
 //  Class declaration for the array implementation of the List ADT

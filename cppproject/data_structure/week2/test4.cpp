@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-//	written by : 2020112036 김상현
+//	written by : 김상현
 //				                                          test4.cpp
 //
 //  Test program for the operations in the List ADT
