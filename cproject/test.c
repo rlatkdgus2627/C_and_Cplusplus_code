@@ -1,15 +1,11 @@
 #include <stdio.h>
 
 int main(){
-    int a, b, n;
-    int num[10000];
-    scanf("%d",&n);
-    for(int i=0;i<n;i++){
-        scanf("%d %d",&a,&b);
-        num[i] = a+b;
-    }
-    for(int i=0;i<n;i++){
-        printf("%d\n",num[i]);
+    unsigned int a;
+    int input;
+    scanf("%d",&input);
+    for(int i = 15; i>= 0; i--){
+        printf("%d",(input & (1 << i)) == 0 ? 0 : 1);
     }
     return 0;
 }
